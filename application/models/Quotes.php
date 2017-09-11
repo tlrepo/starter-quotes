@@ -34,7 +34,12 @@ class Quotes extends CI_Model
 
 		// inject each "record" key into the record itself, for ease of presentation
 		foreach ($this->data as $key => $record)
+		{
 			$record['key'] = $key;
+			$this->data[$key] = $record;
+		}
+	}
+
 	}
 
 	// retrieve a single quote, null if not found
