@@ -7,38 +7,40 @@
  *
  * @author jim
  */
-class Quotes extends CI_Model {
+class Quotes extends CI_Model
+{
 
-	// The data comes from http://www.quotery.com/top-100-funny-quotes-of-all-time/?PageSpeed=noscript
+	// The data comes from http://www.imdb.com/title/tt0094012/
+	// expressed using long-form array notaiton in case students use PHP 5.x
 	var $data = array(
-		array('id' => '1', 'who' => 'Bob Monkhouse', 'mug' => 'bob-monkhouse-150x150.jpg', 'where' => '/sleep',
-			'what' => 'When I die, I want to go peacefully like my grandfather did–in his sleep. Not yelling and screaming like the passengers in his car.'),
-		array('id' => '2', 'who' => 'Elayne Boosler', 'mug' => 'elayne-boosler-150x150.jpg', 'where' => '/lock/em/up',
-			'what' => 'I have six locks on my door all in a row. When I go out, I lock every other one. I figure no matter how long somebody stands there picking the locks, they are always locking three.'),
-		array('id' => '3', 'who' => 'Mark Russell', 'mug' => 'mark-russell-150x150.jpg', 'where' => '/show/3',
-			'what' => 'The scientific theory I like best is that the rings of Saturn are composed entirely of lost airline luggage.'),
-		array('id' => '4', 'who' => 'Anonymous', 'mug' => 'Anonymous-150x150.jpg', 'where' => '/dunno',
-			'what' => 'How do you get a sweet little 80-year-old lady to say the F word? Get another sweet little 80-year-old lady to yell “BINGO!”'),
-		array('id' => '5', 'who' => 'Socrates', 'mug' => 'socrates-150x150.jpg', 'where' => '/wise/bingo',
-			'what' => 'By all means, marry. If you get a good wife, you’ll become happy; if you get a bad one, you’ll become a philosopher.'),
-		array('id' => '6', 'who' => 'Isaac Asimov', 'mug' => 'isaac-asimov-150x150.jpg', 'where' => '/comp4711/wisdom',
-			'what' => 'Those people who think they know everything are a great annoyance to those of us who do.')
+		'1'	 => array('who'	 => 'Mel Brooks', 'role'	 => 'Yogurt',
+			'what'	 => 'May the schwartz be with you!'),
+		'2'	 => array('who'	 => 'John Candy', 'role'	 => 'Barf',
+			'what'	 => 'It\'s her royal highness\'s matched luggage!'),
+		'3'	 => array('who'	 => 'Rick Moranis', 'role'	 => 'Dark Helmet',
+			'what'	 => 'Ludicrous Speed, Go!'),
+		'4'	 => array('who'	 => 'Bill Pullman', 'role'	 => 'Lone Starr',
+			'what'	 => 'Buckle up back there, we\'re going into..."Hyperactive"!'),
+		'5'	 => array('who'	 => 'Joan Rivers', 'role'	 => 'Dot Matrix ',
+			'what'	 => 'Goodbye, virgin alarm.'),
+		'6'	 => array('who'	 => 'George Wyner', 'role'	 => 'Colonel Sandurz',
+			'what'	 => 'No, sir! I didn\'t see you playing with your dolls again!')
 	);
 
 	// Constructor
 	public function __construct()
 	{
 		parent::__construct();
+
+		// inject each "record" key into the record itself, for ease of presentation
+		foreach ($this->data as $key => $record)
+			$record['key'] = $key;
 	}
 
-	// retrieve a single quote
+	// retrieve a single quote, null if not found
 	public function get($which)
 	{
-		// iterate over the data until we find the one we want
-		foreach ($this->data as $record)
-			if ($record['id'] == $which)
-				return $record;
-		return null;
+		return empty($data[$which]) ? null : $data[$which];
 	}
 
 	// retrieve all of the quotes
