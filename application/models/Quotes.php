@@ -21,7 +21,7 @@ class Quotes extends CI_Model
 			'what'	 => 'Ludicrous Speed, Go!'),
 		'4'	 => array('who'	 => 'Bill Pullman', 'role'	 => 'Lone Starr',
 			'what'	 => 'Buckle up back there, we\'re going into..."Hyperactive"!'),
-		'5'	 => array('who'	 => 'Joan Rivers', 'role'	 => 'Dot Matrix ',
+		'5'	 => array('who'	 => 'Joan Rivers', 'role'	 => 'Dot Matrix',
 			'what'	 => 'Goodbye, virgin alarm.'),
 		'6'	 => array('who'	 => 'George Wyner', 'role'	 => 'Colonel Sandurz',
 			'what'	 => 'No, sir! I didn\'t see you playing with your dolls again!')
