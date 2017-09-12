@@ -45,7 +45,7 @@ class Quotes extends CI_Model
 	// retrieve a single quote, null if not found
 	public function get($which)
 	{
-		return empty($data[$which]) ? null : $data[$which];
+		return !isset($this->data[$which]) ? null : $this->data[$which];
 	}
 
 	// retrieve all of the quotes
