@@ -40,8 +40,6 @@ class Quotes extends CI_Model
 		}
 	}
 
-	}
-
 	// retrieve a single quote, null if not found
 	public function get($which)
 	{
