@@ -6,3 +6,11 @@
 !*/cache/.htaccess
 /nbproject/private/
 /nbproject/
+######################
+# IDEA
+######################
+*.iml
+*.ipr
+*.iws
+.idea/
+atlassian-ide-plugin.xml
